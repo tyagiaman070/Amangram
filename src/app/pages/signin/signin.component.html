@@ -1,0 +1,108 @@
+<div class="" *ngIf="!isLoading">
+  <div class="row pt-5">
+    <div class="col-lg-6 col-md-12">
+      <div class="card border-danger">
+        <div
+          class="card-header text-center text-danger h1 text-uppercase font-weight-bold"
+        >
+          Sign In
+        </div>
+
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group row">
+              <label
+                for="email"
+                class="col-sm-3 col-form-label font-weight-bold"
+                >Email:</label
+              >
+
+              <div class="col-sm-9">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your Email"
+                  ngModel
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group row mt-4">
+              <label
+                for="password"
+                class="col-sm-3 col-form-label font-weight-bold"
+                >Password:</label
+              >
+
+              <div class="col-sm-9">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  ngModel
+                  required
+                />
+                <small id="emailHelp" class="form-text text-danger"
+                  >Minimum length of the password should be 6 or more</small
+                >
+              </div>
+            </div>
+            <div class="form-group row mt-4">
+              <label
+                for="password"
+                class="col-sm-3 col-form-label font-weight-bold"
+                >Confirm Password:</label
+              >
+              <div class="col-sm-9">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  placeholder="Confirm your password"
+                  ngModel
+                  required
+                />
+                <small id="emailHelp" class="form-text text-danger"
+                  >Minimum length of the password should be 6 or more</small
+                >
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button
+                [disabled]="!f.form.valid"
+                class="btn btn-danger font-weight-bold signin_button"
+                type="submit"
+              >
+                Sign In
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <img class="imageSignIn" src="../../../assets/signin.png" alt="" />
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="d-flex">
+  <div class="divLoading text-center justify-content-center align-items-center">
+    <div
+      class="spinner-border text-danger mt-5"
+      style="width: 3rem; height: 3rem;"
+      role="status"
+    ></div>
+
+    <div class="h1 mt-5">
+      Please wait till we authenticate you
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div
+    *ngIf="isLoading"
+    class="d-flex justify-content-center align-items-center"
+  >
+    <div class="h1 text-center text-danger">
+      PLEASE RELOAD THE PAGE IF POSTS ARE NOT THERE
+    </div>
+    <div
+      class="spinner-border text-danger mt-5"
+      style="width: 3rem; height: 3rem;"
+      role="status"
+    ></div>
+  </div>
+  <div *ngIf="!isLoading && userMain">
+    <!-- will render list of post here -->
+    <h1 class="text-center text-warning pt-3">Posts by our Users</h1>
+    <div *ngFor="let post of posts">
+      <div class="row">
+        <app-post class="col-lg-10 col-md-12" [post]="post"></app-post>
+      </div>
+      <!-- <app-indiuser hidden="true" [post]="post"></app-indiuser> -->
+    </div>
+
+    <!-- <div class="col col-md-5">
+        <p class="text-muted text-uppercase text-center">Recent new User</p>
+        <div *ngFor="let users of users">
+          <app-user [users]="users"></app-user>
+        </div>
+      </div> -->
+  </div>
+</div>
+
+<div class="text-dark row" *ngIf="!userMain">
+  <div class="col-12 text-center pt-5">
+    <h1 class="text-danger">PLease Sign in to see posts</h1>
+    <div class="text-center pt-4">
+      <button
+        type="submit"
+        class="btn btn-danger signin_button"
+        [routerLink]="['/signin']"
+      >
+        Sign in
+      </button>
+    </div>
+    <div class="text-center">
+      <button
+        type="submit"
+        class="btn btn-danger signin_button"
+        [routerLink]="['/signup']"
+      >
+        Sign up
+      </button>
+    </div>
+  </div>
+</div>

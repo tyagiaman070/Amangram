@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "travelgram-3fd85": {
+      "hosting": {
+        "instaclone": [
+          "travelgram-3fd85"
+        ]
+      }
+    }
+  }
+}

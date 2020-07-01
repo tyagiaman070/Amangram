@@ -1,0 +1,43 @@
+/* .signUpBackCss {
+  background: radial-gradient(
+      100% 135% at 90% 0%,
+      #00ff66 0%,
+      #00ff66 33%,
+      #00ffff calc(33% + 1px),
+      #00ffff 75%,
+      #eb00ff calc(75% + 1px),
+      #eb00ff 100%
+    ),
+    radial-gradient(
+      circle at 60% 110%,
+      #00ff66 0%,
+      #00ff66 33%,
+      #00ffff calc(33% + 1px),
+      #00ffff 66%,
+      #eb00ff calc(66% + 1px),
+      #eb00ff 100%
+    ),
+    radial-gradient(
+      100% 225% at 0% 0%,
+      #00ff66 0%,
+      #00ff66 33%,
+      #00ffff calc(33% + 1px),
+      #00ffff 66%,
+      #eb00ff calc(66% + 1px),
+      #eb00ff 100%
+    ) !important;
+  background-blend-mode: multiply, multiply, normal !important;
+} */
+
+.signupImage {
+  width: 100%;
+}
+
+.signin_button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-right: 10%;
+}

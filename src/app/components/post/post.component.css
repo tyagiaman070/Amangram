@@ -1,0 +1,11 @@
+.postsImage {
+  height: 600px;
+  width: 300;
+}
+
+@media only screen and (max-width: 600px) {
+  .postsImage {
+    height: 300px;
+    width: 300;
+  }
+}

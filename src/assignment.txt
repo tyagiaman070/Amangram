@@ -1,0 +1,1 @@
+allow user to upload image once he is signed in

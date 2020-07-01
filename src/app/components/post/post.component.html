@@ -1,0 +1,48 @@
+<div class="col-lg-7 col-md-10 col-sm-12 mt-5">
+  <!-- <div class="h1">HELO</div> -->
+  <div class="card mb-5 border-danger">
+    <img [src]="post.picture" class="card-img-top postsImage" />
+
+    <div class="card-body ml-3">
+      <h5 class="card-title text-uppercase">
+        <span class="text-warning">
+          Location:- &nbsp;
+        </span>
+        {{ post.locationName }}
+      </h5>
+      <p class="card-text">
+        <span class="h5 text-info">
+          Post Description:- &nbsp;
+        </span>
+        <span class="uk-text-bold">
+          {{ post.description }}
+        </span>
+      </p>
+
+      <h5 class="text-danger">By:- {{ post.by }}</h5>
+    </div>
+    <div class="align-items-center text-center">
+      <button
+        (click)="handleReport()"
+        class="btn btn-danger pl-5 pr-5 pt-2 pb-2 mb-4"
+      >
+        Report Post
+      </button>
+    </div>
+    <div
+      class="card-footer bg-transparent border-danger d-flex justify-content-around align-content-center"
+    >
+      <div (click)="upvotePost()" class="text-primary">
+        <fa-icon [icon]="faThumbsUp" size="lg" primaryColor="blue"></fa-icon>
+        {{ upvote }}
+      </div>
+      <div (click)="downvotePost()" class="text-danger">
+        <fa-icon [icon]="faThumbsDown" size="lg" primaryColor="blue"></fa-icon>
+        {{ downvote }}
+      </div>
+      <a [href]="getInstaUrl()" target="_blank" class="text-success">
+        <fa-icon [icon]="faShareSquare" size="lg" primaryColor="blue"></fa-icon>
+      </a>
+    </div>
+  </div>
+</div>

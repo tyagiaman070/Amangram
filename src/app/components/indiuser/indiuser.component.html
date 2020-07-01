@@ -1,0 +1,65 @@
+<div
+  *ngIf="isLoadingUserIndivPosts; else Content"
+  class="d-flex justify-content-center align-items-center min-vh-100"
+>
+  <div
+    class="spinner-border text-danger"
+    style="width: 3rem; height: 3rem;"
+    role="status"
+  ></div>
+</div>
+
+<ng-template #Content>
+  <div *ngIf="noPosts">
+    <h1 class="text-danger">No Posts Found</h1>
+    <h1 class="text-danger">
+      Try Adding Posts
+    </h1>
+    <button
+      [routerLink]="['/addpost']"
+      class="nav-item nav-link btn btn-warning text-danger"
+    >
+      Post Your Story
+    </button>
+  </div>
+
+  <div class="row" *ngIf="!noPosts">
+    <div class="col-lg-5 col-md-12">
+      <h1 class="mb-2 pt-3 text-danger">
+        Your Posts
+      </h1>
+
+      <div *ngFor="let item of userIndivPosts" class="card mb-3">
+        <div>
+          <img
+            [src]="item.picture"
+            style="width: 100%; height: 490px;"
+            class="card-img-top img-fluid"
+          />
+
+          <div class="card-body">
+            <h5 class="card-title text-uppercase">
+              <span class="text-info">
+                Location:- &nbsp;
+              </span>
+              {{ item.locationName }}
+            </h5>
+            <p class="card-text">
+              <span class="text-warning">
+                Post Description:- &nbsp;
+              </span>
+              {{ item.description }}
+            </p>
+
+            <button
+              (click)="deleteThisPost(item.id, item.locationName)"
+              class="btn btn-danger pl-2 pr-2"
+            >
+              Delete Post
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

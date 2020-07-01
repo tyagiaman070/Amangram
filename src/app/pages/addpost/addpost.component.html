@@ -1,0 +1,125 @@
+<div *ngIf="userMain?.emailVerified" class="">
+  <div *ngIf="!isLoading" class="main row mt-2 mb-3">
+    <div class="col col-lg-6 col-md-12 mt-5">
+      <div class="card border-danger">
+        <div class="card-header bg-danger text-large text-white text-center">
+          {{ "Add Your Post" | uppercase }}
+        </div>
+
+        <form class="card-body" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="locationName">Location Name</label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="locationName"
+              name="locationName"
+              placeholder="Enter Name"
+              [(ngModel)]="locationName"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              type="text"
+              rows="5"
+              class="form-control"
+              id="description"
+              name="description"
+              [(ngModel)]="description"
+              required
+              placeholder="some description"
+            ></textarea>
+          </div>
+
+          <div class="text-center mb-4 mt-2">
+            <label for="imagepicker" class="">
+              Add your photo
+            </label>
+
+            <input
+              type="file"
+              name="image"
+              id="imagepicker"
+              accept="image/*"
+              multiple="{false}"
+              (change)="uploadFile($event)"
+              class="form-control-file"
+            />
+            <!-- <div
+              class="text-info text-center"
+              *ngIf="uploadPercent != 100 && uploadPercent > 0"
+            >
+              uploading {{ uploadPercent | number: "1.0-0" }} % of 100% <br />
+              Please wait a little...
+            </div> -->
+            <div
+              class="text-danger text-uppercase text-center"
+              *ngIf="uploadPercent == 100"
+            >
+              Upload finished
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button
+              type="submit"
+              class="btn btn-danger signin_button font-weight-bold"
+              [disabled]="!picture"
+            >
+              Submit Post
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-12">
+      <h3 *ngIf="picture" class="text-danger text-center text-uppercase">
+        Your Image
+      </h3>
+      <img *ngIf="picture" [src]="picture" alt="" class="mt-1 userPostImage" />
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="d-flex">
+  <div class="divLoading text-center justify-content-center align-items-center">
+    <div
+      class="spinner-border text-danger mt-5"
+      style="width: 3rem; height: 3rem;"
+      role="status"
+    ></div>
+
+    <div class="h1 mt-5">
+      Uploading Post
+    </div>
+  </div>
+</div>
+
+<!-- <div class="col-lg-4 col-md-12">
+  <div class="form-group">
+    <label (click)="getLiveLocation()" for="locationName"
+      >Check Live Location
+
+      <fa-icon [icon]="faMapMarker" size="50px" style="color: red;"></fa-icon>
+    </label>
+
+    <div *ngIf="imgurl">
+      <img src="imgurl" alt="nofound" />
+      hello
+    </div>
+    <div *ngIf="!imgurl">
+      Click above to get your live location
+    </div>
+  </div>
+</div> -->
+
+<div
+  class="text-center h1 text-uppercase text-danger"
+  *ngIf="!userMain?.emailVerified"
+>
+  Verify Your Email First
+</div>

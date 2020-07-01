@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+@import "~ngx-toastr/toastr";
+
+body {
+  position: relative;
+  min-width: 100%;
+  min-height: 100vh;
+}
+
+.bodyofWeb {
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+.signin_button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-right: 10%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.divLoading {
+  height: 100vh;
+  z-index: 1000;
+  width: 100vw;
+  background: rgba(255, 166, 0, 0.877);
+}
+
+/* app-allusers {
+  background: linear-gradient(180deg, #0c003c 0%, #bfffaf 100%),
+    linear-gradient(165deg, #480045 25%, #e9eaaf 100%),
+    linear-gradient(145deg, #480045 25%, #e9eaaf 100%),
+    linear-gradient(300deg, rgba(233, 223, 255, 0) 0%, #af89ff 100%),
+    linear-gradient(
+      90deg,
+      #45eba5 0%,
+      #45eba5 30%,
+      #21aba5 30%,
+      #21aba5 60%,
+      #1d566e 60%,
+      #1d566e 70%,
+      #163a5f 70%,
+      #163a5f 100%
+    );
+  background-blend-mode: overlay, overlay, overlay, multiply, normal;
+} */

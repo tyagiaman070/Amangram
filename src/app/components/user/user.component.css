@@ -1,0 +1,33 @@
+.horizontal-display {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+}
+.imagUser {
+  height: 280px;
+  width: auto;
+  margin-right: 4px;
+  border-radius: 30%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.image_div_adjust {
+  width: 40%;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 550px) {
+  .image_div_adjust {
+    width: 85%;
+    border-radius: 60%;
+  }
+  .imagUser {
+    height: 230px;
+    width: auto;
+    margin-right: 4px;
+    border-radius: 30%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+}

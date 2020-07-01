@@ -1,0 +1,106 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <span *ngIf="!user">
+    <a class="text-white" [routerLink]="['/']">
+      Aman Tyagi Inc
+    </a>
+    <img
+      style="
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-left: 20px;
+        outline: none;
+      "
+      src="../../../assets/defaultLogo.png"
+      alt="No Data"
+      [routerLink]="['/']"
+    />
+  </span>
+  <span *ngIf="user">
+    <a class="navbar-brand text-warning" [routerLink]="['/profile']">
+      {{ user.name }}
+    </a>
+    <a [routerLink]="['/profile']">
+      <img
+        style="
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          outline: none;
+          margin-left: 20px;
+        "
+        [src]="user?.picture"
+        alt="No Data"
+      />
+    </a>
+  </span>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <!-- if the user is present then printing email -->
+      <div *ngIf="user" class="navbar-text text-warning float-left">
+        {{ email }}
+      </div>
+      <a [routerLink]="['/']" class="nav-item nav-link text-warning">Home</a>
+      <!-- conditionally rendering links  -->
+      <a
+        *ngIf="!user"
+        [routerLink]="['/signin']"
+        routerLinkActive="active"
+        class="nav-item nav-link text-white"
+        >Sign In</a
+      >
+      <a
+        *ngIf="!user"
+        [routerLink]="['/signup']"
+        routerLinkActive="active"
+        class="nav-item nav-link text-white"
+        >Sign Up</a
+      >
+
+      <a
+        *ngIf="user"
+        routerLinkActive="active"
+        [routerLink]="['/allusers']"
+        class="nav-item nav-link text-warning"
+        >ALl Users</a
+      >
+
+      <a
+        *ngIf="user"
+        routerLinkActive="active"
+        [routerLink]="['/myposts']"
+        class="nav-item nav-link text-warning"
+        >My Posts</a
+      >
+
+      <a
+        *ngIf="user"
+        (click)="handleSignOut()"
+        routerLinkActive="active"
+        style="cursor: pointer;"
+        class="nav-item nav-link text-warning"
+        >Log Out</a
+      >
+
+      <a
+        *ngIf="user"
+        [routerLink]="['/addpost']"
+        class="nav-item nav-link btn btn-warning text-danger"
+      >
+        Post Your Story</a
+      >
+    </div>
+  </div>
+</nav>

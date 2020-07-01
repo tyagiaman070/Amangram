@@ -1,0 +1,12 @@
+.userPostImage {
+  height: 400px;
+  width: 400px;
+}
+
+@media only screen and (max-width: 991px) {
+  /* For mobile phones: */
+  .userPostImage {
+    height: 280px;
+    width: 300px;
+  }
+}

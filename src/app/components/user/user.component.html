@@ -1,0 +1,27 @@
+<div
+  class="card mb-5 horizontal-display"
+  style="border-radius: 8%;"
+  *ngIf="users?.role == 0"
+>
+  <div
+    class="d-flex justify-content-center align-items-center pl-3 pr-1 image_div_adjust"
+  >
+    <img [src]="users.picture" alt="" class="w-100 imagUser" />
+  </div>
+  <div class="card-body" style="margin-top: 3%;">
+    <h5 class="card-title mb-3">User Name:- {{ users.name | uppercase }}</h5>
+    <h5 class="card-title mb-3">User Country:- {{ users.country }}</h5>
+
+    <h5 class="card-title mb-3">
+      User Instagram Id:- {{ users.instaUserName }}
+    </h5>
+    <span class="card-text mb-3">
+      <strong>
+        Users Bio:-
+      </strong>
+      {{ users.bio }}
+    </span>
+  </div>
+</div>
+
+<!-- <app-indiuser [user]="users"> </app-indiuser> -->

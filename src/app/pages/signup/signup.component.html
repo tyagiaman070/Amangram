@@ -1,0 +1,213 @@
+<div class="row pt-5 pb-5 signUpBackCss" *ngIf="!isLoading">
+  <div class="col-lg-7 pl-4 col-md-12 mb-5">
+    <div class="card border-danger">
+      <div
+        class="card-header text-center font-weight-bold text-danger h1 text-uppercase"
+      >
+        Sign Up
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div>
+            <!-- image picker -->
+            <div class="text-center">
+              <label for="imagepicker" class="">
+                <img
+                  [src]="picture"
+                  style="height: 100px; width: 100px; border-radius: 50%;"
+                  class="profile"
+                />
+              </label>
+
+              <input
+                type="file"
+                name="image"
+                id="imagepicker"
+                accept="image/*"
+                multiple="{false}"
+                class="hidden"
+                hidden
+                (change)="uploadFile($event)"
+              />
+            </div>
+
+            <div
+              [hidden]="!uploadPercent || uploadPercent == 100"
+              class="text-white text-center font-weight-bold"
+            >
+              uploading
+              {{ uploadPercent | number: "1.0-0" }} % of 100%
+            </div>
+            <div
+              *ngIf="uploadPercent == 100"
+              class="text-success text-uppercase text-center mb-3 font-weight-bold"
+            >
+              Upload finished
+            </div>
+          </div>
+
+          <div class="form-group row mt-3">
+            <label for="name" class="col-sm-3 col-form-label font-weight-bold"
+              >Name:</label
+            >
+            <div class="col-sm-9">
+              <input
+                type="name"
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="Enter Name"
+                required
+                ngModel
+              />
+            </div>
+          </div>
+
+          <div class="form-group row mt-3">
+            <label for="email" class="col-sm-3 col-form-label font-weight-bold"
+              >Email:</label
+            >
+            <div class="col-sm-9">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Enter Email"
+                required
+                ngModel
+              />
+            </div>
+          </div>
+
+          <div class="form-group row mt-3">
+            <label
+              for="password"
+              class="col-sm-3 col-form-label font-weight-bold"
+              >Password:</label
+            >
+            <div class="col-sm-9">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+                ngModel
+              />
+              <small id="emailHelp" class="form-text text-danger"
+                >Minimum length of the password should be 6 or more</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group row mt-3">
+            <label
+              for="password"
+              class="col-sm-3 col-form-label font-weight-bold"
+              >Confirm Password:</label
+            >
+            <div class="col-sm-9">
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                required
+                ngModel
+              />
+              <small id="emailHelp" class="form-text text-danger"
+                >Minimum length of the password should be 6 or more</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="email" class="col-sm-3 col-form-label font-weight-bold"
+              >Instagram user name:</label
+            >
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                placeholder="Enter your handle of instagram"
+                required
+                ngModel
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="email" class="col-sm-3 col-form-label font-weight-bold"
+              >Country:</label
+            >
+            <div class="col-sm-9">
+              <select
+                required
+                ngModel
+                name="country"
+                class="form-control"
+                id="country"
+              >
+                <!-- <option value="---------">---------</option> -->
+                <option value="India">India</option>
+                <option value="United States of America"
+                  >United States of America</option
+                >
+                <option value="Russian Federation">Russian Federation</option>
+                <option value="Romania">Romania</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="email" class="col-sm-3 col-form-label font-weight-bold"
+              >bio:</label
+            >
+            <div class="col-sm-9">
+              <textarea
+                type="text"
+                class="form-control"
+                id="bio"
+                name="bio"
+                placeholder="something that describes you best"
+                required
+                ngModel
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button
+              [disabled]="!f.form.valid"
+              class="btn btn-danger signin_button font-weight-bold"
+              type="submit"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5 col-md-12">
+    <img class="signupImage" src="../../../assets//signup.png" alt="" />
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="d-flex">
+  <div class="divLoading text-center justify-content-center align-items-center">
+    <div
+      class="spinner-border text-danger mt-5"
+      style="width: 3rem; height: 3rem;"
+      role="status"
+    ></div>
+    <div class="h1 mt-5">
+      Please wait Loading...
+    </div>
+  </div>
+</div>
